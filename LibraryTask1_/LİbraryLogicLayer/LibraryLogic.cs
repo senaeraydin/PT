@@ -1,6 +1,6 @@
 ﻿using LibraryDataLayer;
 
-namespace LİbraryLogicLayer
+namespace LibraryLogicLayer
 {
     public class LibraryLogic
     {
