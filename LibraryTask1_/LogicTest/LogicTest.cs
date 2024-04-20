@@ -1,5 +1,5 @@
 using LibraryDataLayer;
-using LÝbraryLogicLayer;
+using LibraryLogicLayer_;
 
 namespace LogicTest
 {
@@ -9,8 +9,8 @@ namespace LogicTest
         [TestMethod]
         public void TestMethod1()
         {
-            var libraryData = new LibraryData();
-            var logic = new LibraryLogic(libraryData);
+            var mockDataRepository = new MockDataRepository();
+            var logic = new LibraryLogicL(mockDataRepository);
             var user = new User
             {
                 UserId = "1",
@@ -22,8 +22,9 @@ namespace LogicTest
 
 
             logic.AddUser(user);
-            Assert.IsNotNull(libraryData.Users.Find(u => u.UserId == user.UserId));
-
+           
+            Assert.AreEqual(1, mockDataRepository.Users.Count); 
+            Assert.AreEqual(user, mockDataRepository.Users[0]);
         }
     }
 }

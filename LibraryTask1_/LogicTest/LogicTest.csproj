@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LibraryDataLayer\LibraryDataLayer.csproj" />
-    <ProjectReference Include="..\LİbraryLogicLayer\LİbraryLogicLayer.csproj" />
+    <ProjectReference Include="..\LibraryLogicLayer_\LibraryLogicLayer_.csproj" />
   </ItemGroup>
 
   <ItemGroup>

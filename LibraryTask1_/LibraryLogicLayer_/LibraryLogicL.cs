@@ -1,12 +1,12 @@
 ﻿using LibraryDataLayer;
 
-namespace LibraryLogicLayer
+namespace LibraryLogicLayer_
 {
-    public class LibraryLogic
+    public class LibraryLogicL
     {
-        private readonly LibraryData libraryData;
+        private readonly InterfaceDataLayer libraryData;
 
-        public LibraryLogic(LibraryData libraryData_)
+        public LibraryLogicL(InterfaceDataLayer libraryData_)
         {
             this.libraryData = libraryData_;
         }
@@ -84,4 +84,6 @@ namespace LibraryLogicLayer
             return libraryData.Events;
         }
     }
-}
+}  
+    
+
