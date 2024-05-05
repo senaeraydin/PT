@@ -13,5 +13,8 @@ namespace LibraryDataLayer
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+
+        // 0 or more events can be associated with one user
+        public List<Event> Events { get; set; }
     }
 }

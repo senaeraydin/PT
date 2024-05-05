@@ -18,6 +18,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LibraryDataLayer\LibraryDataLayer.csproj" />
+    <ProjectReference Include="..\LibraryLogicLayer_\LibraryLogicLayer_.csproj" />
+    <ProjectReference Include="..\LibraryTask1_\LibraryTask1_.csproj" />
+    <ProjectReference Include="..\LogicTest\LogicTest.csproj" />
   </ItemGroup>
 
   <ItemGroup>
