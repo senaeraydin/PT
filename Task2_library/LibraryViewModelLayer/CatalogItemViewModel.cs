@@ -32,7 +32,7 @@ namespace LibraryViewModelLayer
         {
             var newCatalogItem = new CatalogItem
             {
-                ItemId = "1", // Just for demonstration purposes
+                ItemId = "1",
                 Name = "NewItem",
                 Description = "NewCategory",
                 Price = 10,
