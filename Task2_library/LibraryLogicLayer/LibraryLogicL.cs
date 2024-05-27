@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace LibraryLogicLayer
 {
     public class LibraryLogicL
-    {
+    {  //LibraryLogicL
         private readonly InterfaceDataLayer dataLayer;
 
         public LibraryLogicL(InterfaceDataLayer dataLayer)
