@@ -1,4 +1,4 @@
-﻿using LibraryLogicLayer;
+﻿
 using LibraryViewModelLayer;
 using System.Text;
 using System.Windows;
@@ -21,9 +21,7 @@ namespace LibraryViewLayer
         public MainWindow()
         {
             InitializeComponent();
-            var dataLayer = new LibraryDataLayer.LibraryData("your_connection_string");
-            var logicLayer = new LibraryLogicL(dataLayer);
-            DataContext = new UserViewModel(logicLayer);
+           
         }
     }
 }

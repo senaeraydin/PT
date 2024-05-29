@@ -9,9 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibraryDataLayer\LibraryDataLayer.csproj" />
-    <ProjectReference Include="..\LibraryLogicLayer\LibraryLogicLayer.csproj" />
-    <ProjectReference Include="..\LibraryModelLayer\LibraryModelLayer.csproj" />
     <ProjectReference Include="..\LibraryViewModelLayer\LibraryViewModelLayer.csproj" />
   </ItemGroup>
 

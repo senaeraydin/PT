@@ -4,25 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryModelLayer;
-using LibraryLogicLayer;
+
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 namespace LibraryViewModelLayer
 {
     public class CatalogItemViewModel : ViewModelBase
     {
-        private readonly LibraryLogicL libraryLogic;
-
         public ObservableCollection<CatalogItem> CatalogItems { get; set; }
         public CatalogItem SelectedCatalogItem { get; set; }
 
         public ICommand AddCatalogItemCommand { get; }
         public ICommand RemoveCatalogItemCommand { get; }
 
-        public CatalogItemViewModel(LibraryLogicL libraryLogic)
+        public CatalogItemViewModel()
         {
-            this.libraryLogic = libraryLogic;
-            CatalogItems = new ObservableCollection<CatalogItem>((IEnumerable<CatalogItem>)libraryLogic.GetCatalogItems());
+            CatalogItems = new ObservableCollection<CatalogItem>(CatalogItem.GetCatalogItems());
 
             AddCatalogItemCommand = new RelayCommand(AddCatalogItem);
             RemoveCatalogItemCommand = new RelayCommand(RemoveCatalogItem);
@@ -38,7 +35,7 @@ namespace LibraryViewModelLayer
                 Price = 10,
                 Quantity = 5
             };
-            libraryLogic.AddCatalogItem(newCatalogItem);
+            CatalogItem.AddCatalogItem(newCatalogItem);
             CatalogItems.Add(newCatalogItem);
         }
 
@@ -46,7 +43,7 @@ namespace LibraryViewModelLayer
         {
             if (SelectedCatalogItem != null)
             {
-                libraryLogic.RemoveCatalogItem(SelectedCatalogItem.ItemId);
+                CatalogItem.RemoveCatalogItem(SelectedCatalogItem.ItemId);
                 CatalogItems.Remove(SelectedCatalogItem);
             }
         }

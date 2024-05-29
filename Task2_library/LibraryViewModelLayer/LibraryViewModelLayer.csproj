@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibraryLogicLayer\LibraryLogicLayer.csproj" />
     <ProjectReference Include="..\LibraryModelLayer\LibraryModelLayer.csproj" />
   </ItemGroup>
 

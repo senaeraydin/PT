@@ -1,6 +1,6 @@
 ﻿
 using LibraryModelLayer;
-using LibraryViewModelLayer;
+
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace ViewModelTest
             var email = "user1@example.com";
 
             // Act
-            var user = new User
+            var user = new LibraryDataLayer.User
             {
                 UserId = userId,
                 UserName = userName,

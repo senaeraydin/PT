@@ -1,5 +1,5 @@
 ﻿using LibraryModelLayer;
-using LibraryLogicLayer;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,46 +7,76 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System.ComponentModel;
 
 namespace LibraryViewModelLayer
 {
-    public class StateViewModel : ViewModelBase
+    public class State : INotifyPropertyChanged
     {
-        private readonly LibraryLogicL libraryLogic;
-
-        public ObservableCollection<State> States { get; set; }
-        public State SelectedState { get; set; }
-
-        public ICommand AddStateCommand { get; }
-        public ICommand RemoveStateCommand { get; }
-
-        public StateViewModel(LibraryLogicL libraryLogic)
+        private static List<State> stateList = new List<State>
         {
-            this.libraryLogic = libraryLogic;
-            States = new ObservableCollection<State>(libraryLogic.GetStates());
+            new State { StateId = "1", StateName = "State A", Description = "Description A" },
+            new State { StateId = "2", StateName = "State B", Description = "Description B" }
+        };
 
-            AddStateCommand = new RelayCommand(AddState);
-            RemoveStateCommand = new RelayCommand(RemoveState);
+        private string stateId;
+        private string stateName;
+        private string description;
+
+        public string StateId
+        {
+            get => stateId;
+            set
+            {
+                stateId = value;
+                OnPropertyChanged(nameof(StateId));
+            }
         }
 
-        private void AddState()
+        public string StateName
         {
-            var newState = new State
+            get => stateName;
+            set
             {
-                StateId = Guid.NewGuid().ToString(),
-                StateName = "NewState",
-                Description = "NewDescription"
-            };
-            libraryLogic.AddState(newState);
-            States.Add(newState);
+                stateName = value;
+                OnPropertyChanged(nameof(StateName));
+            }
         }
 
-        private void RemoveState()
+        public string Description
         {
-            if (SelectedState != null)
+            get => description;
+            set
             {
-                libraryLogic.RemoveState(SelectedState.StateId);
-                States.Remove(SelectedState);
+                description = value;
+                OnPropertyChanged(nameof(Description));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // Static methods to manipulate state data
+        public static List<State> GetStates()
+        {
+            return stateList;
+        }
+
+        public static void AddState(State state)
+        {
+            stateList.Add(state);
+        }
+
+        public static void RemoveState(string stateId)
+        {
+            var state = stateList.FirstOrDefault(s => s.StateId == stateId);
+            if (state != null)
+            {
+                stateList.Remove(state);
             }
         }
     }

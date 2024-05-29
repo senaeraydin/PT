@@ -4,25 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryModelLayer;
-using LibraryLogicLayer;
+
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 namespace LibraryViewModelLayer
 {
     public class EventViewModel : ViewModelBase
     {
-        private readonly LibraryLogicL libraryLogic;
-
         public ObservableCollection<Event> Events { get; set; }
         public Event SelectedEvent { get; set; }
 
         public ICommand AddEventCommand { get; }
         public ICommand RemoveEventCommand { get; }
 
-        public EventViewModel(LibraryLogicL libraryLogic)
+        public EventViewModel()
         {
-            this.libraryLogic = libraryLogic;
-            Events = new ObservableCollection<Event>((IEnumerable<Event>)libraryLogic.GetEvents());
+            Events = new ObservableCollection<Event>(Event.GetEvents());
 
             AddEventCommand = new RelayCommand(AddEvent);
             RemoveEventCommand = new RelayCommand(RemoveEvent);
@@ -32,13 +29,12 @@ namespace LibraryViewModelLayer
         {
             var newEvent = new Event
             {
-                EventId = "1", 
+                EventId = "1",
                 EventName = "NewEvent",
                 StartTime = DateTime.Now,
                 EndTime = DateTime.Now,
-
             };
-            libraryLogic.AddEvent(newEvent);
+            Event.AddEvent(newEvent);
             Events.Add(newEvent);
         }
 
@@ -46,7 +42,7 @@ namespace LibraryViewModelLayer
         {
             if (SelectedEvent != null)
             {
-                libraryLogic.RemoveEvent(SelectedEvent.EventId);
+                Event.RemoveEvent(SelectedEvent.EventId);
                 Events.Remove(SelectedEvent);
             }
         }

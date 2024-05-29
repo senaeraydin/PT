@@ -4,52 +4,102 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibraryModelLayer;
-using LibraryLogicLayer;
+
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System;
+using System.ComponentModel;
 
 namespace LibraryViewModelLayer
 {
-    public class UserViewModel : ViewModelBase
+    public class User : INotifyPropertyChanged
     {
-        private readonly LibraryLogicL libraryLogic;
-
-        public ObservableCollection<User> Users { get; set; }
-        public User SelectedUser { get; set; }
-
-        public ICommand AddUserCommand { get; }
-        public ICommand RemoveUserCommand { get; }
-
-        public UserViewModel(LibraryLogicL libraryLogic)
+        private static List<User> userList = new List<User>
         {
-            this.libraryLogic = libraryLogic;
-            Users = new ObservableCollection<User>((IEnumerable<User>)libraryLogic.GetUsers()); //
+            new User { UserId = "1", UserName = "user1", FirstName = "First1", LastName = "Last1", Email = "user1@example.com" },
+            new User { UserId = "2", UserName = "user2", FirstName = "First2", LastName = "Last2", Email = "user2@example.com" }
+        };
 
-            AddUserCommand = new RelayCommand(AddUser);
-            RemoveUserCommand = new RelayCommand(RemoveUser);
+        private string userId;
+        private string userName;
+        private string firstName;
+        private string lastName;
+        private string email;
+
+        public string UserId
+        {
+            get => userId;
+            set
+            {
+                userId = value;
+                OnPropertyChanged(nameof(UserId));
+            }
         }
 
-        private void AddUser()
+        public string UserName
         {
-            var newUser = new User
+            get => userName;
+            set
             {
-                UserId = Guid.NewGuid().ToString(),
-                UserName = "NewUser",
-                FirstName = "FirstName",
-                LastName = "LastName",
-                Email = "email@example.com"
-            };
-            libraryLogic.AddUser(newUser);
-            Users.Add(newUser);
+                userName = value;
+                OnPropertyChanged(nameof(UserName));
+            }
         }
 
-        private void RemoveUser()
+        public string FirstName
         {
-            if (SelectedUser != null)
+            get => firstName;
+            set
             {
-                libraryLogic.RemoveUser(SelectedUser.UserId);
-                Users.Remove(SelectedUser);
+                firstName = value;
+                OnPropertyChanged(nameof(FirstName));
+            }
+        }
+
+        public string LastName
+        {
+            get => lastName;
+            set
+            {
+                lastName = value;
+                OnPropertyChanged(nameof(LastName));
+            }
+        }
+
+        public string Email
+        {
+            get => email;
+            set
+            {
+                email = value;
+                OnPropertyChanged(nameof(Email));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // Static methods to manipulate user data
+        public static List<User> GetUsers()
+        {
+            return userList;
+        }
+
+        public static void AddUser(User user)
+        {
+            userList.Add(user);
+        }
+
+        public static void RemoveUser(string userId)
+        {
+            var user = userList.FirstOrDefault(u => u.UserId == userId);
+            if (user != null)
+            {
+                userList.Remove(user);
             }
         }
     }
