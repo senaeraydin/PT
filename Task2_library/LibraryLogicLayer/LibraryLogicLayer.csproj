@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LibraryDataLayer\LibraryDataLayer.csproj" />
-    <ProjectReference Include="..\LibraryModelLayer\LibraryModelLayer.csproj" />
   </ItemGroup>
 
 </Project>

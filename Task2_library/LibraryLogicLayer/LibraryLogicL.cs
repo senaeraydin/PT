@@ -24,34 +24,6 @@ namespace LibraryLogicLayer
         public void RemoveEvent(string eventId) => dataLayer.RemoveEvent(eventId);
         public void UpdateState(State state) => dataLayer.UpdateState(state);
 
-        public void AddUser(global::LibraryModelLayer.User newUser)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddCatalogItem(LibraryModelLayer.CatalogItem newCatalogItem)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddEvent(LibraryModelLayer.Event newEvent)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<LibraryModelLayer.State> GetStates()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddState(LibraryModelLayer.State newState)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RemoveState(string stateId)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

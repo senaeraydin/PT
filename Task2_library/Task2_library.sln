@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryModelLayer", "Librar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryViewModelLayer", "LibraryViewModelLayer\LibraryViewModelLayer.csproj", "{A8E7490A-DB61-42F6-B08E-D2BC9E35D67F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryViewLayer", "LibraryViewLayer\LibraryViewLayer.csproj", "{42985B2F-62CF-4BBD-BD8E-8DE6AECC4AD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryViewLayer", "LibraryViewLayer\LibraryViewLayer.csproj", "{42985B2F-62CF-4BBD-BD8E-8DE6AECC4AD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModelTest", "ViewModelTest\ViewModelTest.csproj", "{D625EC25-9A85-42D2-94F7-D4E7093FE4D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryModelLayerTest", "ViewModelTest\LibraryModelLayerTest.csproj", "{D625EC25-9A85-42D2-94F7-D4E7093FE4D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryViewModelLayerTest", "LibraryViewModelLayerTest\LibraryViewModelLayerTest.csproj", "{BD2E86D0-A4C9-405C-B8B7-B044707F691F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D625EC25-9A85-42D2-94F7-D4E7093FE4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D625EC25-9A85-42D2-94F7-D4E7093FE4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D625EC25-9A85-42D2-94F7-D4E7093FE4D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD2E86D0-A4C9-405C-B8B7-B044707F691F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD2E86D0-A4C9-405C-B8B7-B044707F691F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD2E86D0-A4C9-405C-B8B7-B044707F691F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD2E86D0-A4C9-405C-B8B7-B044707F691F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

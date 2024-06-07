@@ -45,12 +45,6 @@ namespace LibraryViewModelLayer
         public ICommand AddCatalogItemCommand => CatalogItemVM.AddCatalogItemCommand;
         public ICommand RemoveCatalogItemCommand => CatalogItemVM.RemoveCatalogItemCommand;
 
-        public MainViewModel()
-        {
-           
-            EventVM = new EventViewModel();
-          
-            CatalogItemVM = new CatalogItemViewModel();
-        }
+      
     }
 }

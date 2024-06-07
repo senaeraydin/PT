@@ -11,15 +11,19 @@ namespace LibraryViewModelLayer
 {
     public class CatalogItemViewModel : ViewModelBase
     {
+        private readonly ICatalogItemRepository _catalogItemRepository;
+
         public ObservableCollection<CatalogItem> CatalogItems { get; set; }
         public CatalogItem SelectedCatalogItem { get; set; }
 
         public ICommand AddCatalogItemCommand { get; }
         public ICommand RemoveCatalogItemCommand { get; }
 
-        public CatalogItemViewModel()
+        public CatalogItemViewModel(ICatalogItemRepository catalogItemRepository)
         {
-            CatalogItems = new ObservableCollection<CatalogItem>(CatalogItem.GetCatalogItems());
+            _catalogItemRepository = catalogItemRepository;
+
+            CatalogItems = new ObservableCollection<CatalogItem>(_catalogItemRepository.GetCatalogItems());
 
             AddCatalogItemCommand = new RelayCommand(AddCatalogItem);
             RemoveCatalogItemCommand = new RelayCommand(RemoveCatalogItem);
@@ -35,7 +39,7 @@ namespace LibraryViewModelLayer
                 Price = 10,
                 Quantity = 5
             };
-            CatalogItem.AddCatalogItem(newCatalogItem);
+            _catalogItemRepository.AddCatalogItem(newCatalogItem);
             CatalogItems.Add(newCatalogItem);
         }
 
@@ -43,9 +47,10 @@ namespace LibraryViewModelLayer
         {
             if (SelectedCatalogItem != null)
             {
-                CatalogItem.RemoveCatalogItem(SelectedCatalogItem.ItemId);
+                _catalogItemRepository.RemoveCatalogItem(SelectedCatalogItem.ItemId);
                 CatalogItems.Remove(SelectedCatalogItem);
             }
         }
     }
 }
+
