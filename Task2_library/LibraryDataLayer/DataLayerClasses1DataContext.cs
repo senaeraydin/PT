@@ -1,5 +1,5 @@
 ﻿namespace LibraryDataLayer
-{//
+{//linq
     using System;
     using System.Collections.Generic;
     using System.Linq;
