@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryViewLayer", "Library
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryModelLayerTest", "ViewModelTest\LibraryModelLayerTest.csproj", "{D625EC25-9A85-42D2-94F7-D4E7093FE4D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryViewModelLayerTest", "LibraryViewModelLayerTest\LibraryViewModelLayerTest.csproj", "{BD2E86D0-A4C9-405C-B8B7-B044707F691F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryViewModelLayerTest", "LibraryViewModelLayerTest\LibraryViewModelLayerTest.csproj", "{BD2E86D0-A4C9-405C-B8B7-B044707F691F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
