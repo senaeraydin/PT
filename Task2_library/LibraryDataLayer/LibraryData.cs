@@ -15,6 +15,59 @@ namespace LibraryDataLayer
             this.connectionString = connectionString;
         }
 
+        public List<CatalogItem> GetCatalogItemsWithPriceGreaterThan(decimal price)
+        {
+            using (var context = new DataLayerClasses1DataContext(connectionString))
+            {
+                // LINQ Query Syntax
+                var query = from item in context.CatalogItems
+                            where item.Price > price
+                            select item;
+
+                return query.ToList();
+            }
+        }
+
+        public List<State> GetStatesByDescription(string description)
+        {
+            using (var context = new DataLayerClasses1DataContext(connectionString))
+            {
+                // LINQ Method Syntax
+                var states = context.States
+                                    .Where(state => state.Description == description)
+                                    .ToList();
+
+                return states;
+            }
+        }
+
+        public List<User> GetUsersByLastNameInitial(char initial)
+        {
+            using (var context = new DataLayerClasses1DataContext(connectionString))
+            {
+                // LINQ Query Syntax
+                var query = from user in context.Users
+                            where user.LastName.StartsWith(initial.ToString())
+                            select user;
+
+                return query.ToList();
+            }
+        }
+
+        public List<State> GetStatesByDescription_(string description)
+        {
+            using (var context = new DataLayerClasses1DataContext(connectionString))
+            {
+                // LINQ Query Syntax
+                var query = from state in context.States
+                            where state.Description == description
+                            select state;
+
+                return query.ToList();
+            }
+        }
+
+
         public List<User> GetUsers()
         {
             using (var context = new DataLayerClasses1DataContext(connectionString))
@@ -22,6 +75,7 @@ namespace LibraryDataLayer
                 return context.Users.ToList();
             }
         }
+       
 
         public List<CatalogItem> GetCatalogItems()
         {
